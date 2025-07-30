@@ -40,19 +40,19 @@ with col1:
     if st.button('Random Forest'):
         pred = rf_model.predict(features_array)[0]
         st.session_state.y_pred.append(pred)
-        st.success(f'Random Forest: {pred} ({"Malignant" if pred == "M" else "Benign"})')
+        st.success(f'Random Forest: ({"Malignant" if pred == 1 else "Benign"})')
 
 with col2:
     if st.button('Logistic Regression'):
         pred = lg_model.predict(features_array)[0]
         st.session_state.y_pred.append(pred)
-        st.success(f'Logistic Regression: {pred} ({"Malignant" if pred == "M" else "Benign"})')
+        st.success(f'Logistic Regression: ({"Malignant" if pred == 1 else "Benign"})')
 
 with col3:
     if st.button('SVM'):
         pred = svm_model.predict(features_array)[0]
         st.session_state.y_pred.append(pred)
-        st.success(f'SVM: {pred} ({"Malignant" if pred == "M" else "Benign"})')
+        st.success(f'SVM: ({"Malignant" if pred == 1 else "Benign"})')
 
 with col4:
     if st.button('Decision Tree'):
