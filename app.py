@@ -58,13 +58,13 @@ with col4:
     if st.button('Decision Tree'):
         pred = dt_model.predict(features_array)[0]
         st.session_state.y_pred.append(pred)
-        st.success(f'Decision Tree: {pred} ({"Malignant" if pred == "M" else "Benign"})')
+        st.success(f'Decision Tree: ({"Malignant" if pred == 1 else "Benign"})')
 
 with col5:
     if st.button('Final Voting From Models'):
         if len(st.session_state.y_pred) == 4:
             final_vote = Counter(st.session_state.y_pred).most_common(1)[0][0]
-            st.success(f'Final Prediction: {final_vote} ({"Malignant" if final_vote == "M" else "Benign"})')
+            st.success(f'Final Prediction: ({"Malignant" if final_vote == 1 else "Benign"})')
             del st.session_state.y_pred
         else:
             st.error('Please run all 4 model predictions before final voting.')
